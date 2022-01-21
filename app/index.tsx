@@ -10,7 +10,7 @@
 
 import React, {FC} from 'react';
 import Kitchen from './screens/Kitchen';
-import Navigation from './screens/Navigation';
+import Navigation from './Navigation'
 
 const App: FC = () => {
   return <Navigation/>;

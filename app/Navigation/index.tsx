@@ -2,8 +2,8 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {FC} from 'react';
-import {Text, View} from 'react-native';
-import Kitchen from '../Kitchen';
+import Kitchen from '../screens/Kitchen';
+import Stock from '../screens/Stock';
 import TabIcon from './TabIcon';
 
 // const Stack = createNativeStackNavigator();
@@ -12,9 +12,10 @@ const Tab = createBottomTabNavigator();
 const Navigation: FC = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+      initialRouteName='Stock'>
         <Tab.Screen
-          name="Кухня"
+          name="Kitchen"
           component={Kitchen}
           options={{
             tabBarIcon: ({focused}) => (
@@ -23,8 +24,8 @@ const Navigation: FC = () => {
           }}
         />
         <Tab.Screen
-          name="Склад"
-          component={Kitchen}
+          name="Stock"
+          component={Stock}
           options={{
             tabBarIcon: ({focused}) => (
               <TabIcon emoji="🎒" isActive={focused} />
