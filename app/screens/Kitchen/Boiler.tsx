@@ -1,9 +1,11 @@
-import React, {FC, Fragment} from 'react';
+import React, {FC, Fragment, useEffect, useState} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {boilerMock, recipes} from './mock';
 import {IngredientsListType} from './types';
 import {getBoilerResult, getCookingTime, getIsBoilerField} from './utils';
 import kitchenStyles from './styles';
+import * as Progress from 'react-native-progress';
+import AppButton from '../../components/AppButton';
 
 interface PropTypes {
   boiler: IngredientsListType;
@@ -11,8 +13,25 @@ interface PropTypes {
 }
 
 const Boiler: FC<PropTypes> = ({boiler, onItemPress}) => {
-  const cookingTime = getCookingTime(boiler);
+  const [boilingTime, setBoilingTime] = useState(0); //поменять название не понятно чем отличается от cooking time
+  const cookingTime = getCookingTime(boiler); //поменять название
   const isBoilerField = getIsBoilerField(boiler);
+
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>;
+    if (boilingTime > 0) {
+      timer = setTimeout(() => setBoilingTime(prev => prev - 1), 1000);
+    }
+    return () => {
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
+  }, [boilingTime]);
+
+  const calculateProgress = (total: number, current: number) => {
+    return (total - current) / total;
+  };
 
   return (
     <View style={styles.container}>
@@ -35,12 +54,31 @@ const Boiler: FC<PropTypes> = ({boiler, onItemPress}) => {
         </View>
       </View>
       <View style={styles.footer}>
-        <Text style={styles.time}>Время варки: {cookingTime}с </Text>
-        <TouchableOpacity
-          style={[styles.button, !isBoilerField && styles.bottonDisabled]}
-          disabled={!isBoilerField}>
-          <Text style={styles.buttonText}>Варить</Text>
-        </TouchableOpacity>
+        {!(boilingTime > 0) ? (
+          <>
+            <View style={styles.timeContainer}>
+              <Text>Время варки: </Text>
+              <Text style={styles.time}>{cookingTime}с</Text>
+            </View>
+
+            <AppButton
+              text="Варить"
+              onPress={() => setBoilingTime(cookingTime)}
+              isActive={isBoilerField}
+            />
+          </>
+        ) : (
+          <>
+            <Text style={styles.time}>{boilingTime}с</Text>
+            <Progress.Bar
+              progress={calculateProgress(cookingTime, boilingTime)}
+              width={200}
+              height={10}
+              color="rgba(0, 0, 0, 1)"
+            />
+            <AppButton text="стоп" onPress={() => setBoilingTime(0)} isActive={true} />
+          </>
+        )}
       </View>
     </View>
   );
@@ -71,19 +109,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  time: {},
-  button: {
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    backgroundColor: 'rgba(0, 0, 0, 1)',
-    borderRadius: 5,
+  time: {
+    // backgroundColor: 'red',
+    width: 40,
   },
-  bottonDisabled: {
-    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-  },
-  buttonText: {
-    color: 'rgba(255, 255, 255, 0.8)',
-    fontWeight: '800',
+  timeContainer: {
+    flexDirection: 'row',
   },
 });
 
