@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
   listContainer: {
     paddingVertical: 20,
   },
-  header: {},
+  header: kitchenStyles.subTitleContainer,
   headerText: kitchenStyles.subTitle,
   list: {
     // backgroundColor: 'rgba(0, 0, 0, 0.1)',

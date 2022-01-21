@@ -36,7 +36,7 @@ const Boiler: FC<PropTypes> = ({boiler, onItemPress}) => {
 
   return (
     <View style={styles.container}>
-      <View>
+      <View style={styles.header}>
         <Text style={styles.headerText}>Котел</Text>
       </View>
       <View style={styles.list}>

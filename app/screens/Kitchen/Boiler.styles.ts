@@ -20,6 +20,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginBottom: 10,
   },
+  header: kitchenStyles.subTitleContainer,
   headerText: kitchenStyles.subTitle,
   footer: {
     flexDirection: 'row',

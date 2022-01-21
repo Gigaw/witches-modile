@@ -10,9 +10,10 @@
 
 import React, {FC} from 'react';
 import Kitchen from './screens/Kitchen';
+import Navigation from './screens/Navigation';
 
 const App: FC = () => {
-  return <Kitchen />;
+  return <Navigation/>;
 };
 
 export default App;

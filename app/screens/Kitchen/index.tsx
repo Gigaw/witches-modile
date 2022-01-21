@@ -1,5 +1,5 @@
 import React, {FC, Fragment, useState} from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 import Header from '../../components/Header';
 import Boiler from './Boiler';
 import Ingredients from './Ingredients';
@@ -21,9 +21,11 @@ const Kitchen: FC = () => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <Header title="Кухня" />
-      <Boiler boiler={boiler} onItemPress={handleBoilerItemPress} />
-      <Ingredients onItemPress={handleIngredientPress} />
+      <View style={styles.container}>
+        {/* <Header title="Кухня" /> */}
+        <Boiler boiler={boiler} onItemPress={handleBoilerItemPress} />
+        <Ingredients onItemPress={handleIngredientPress} />
+      </View>
     </SafeAreaView>
   );
 };

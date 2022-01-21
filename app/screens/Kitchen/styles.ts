@@ -6,12 +6,19 @@ const styles = StyleSheet.create({
   },
   container: {
     flexGrow: 1,
+    paddingTop: 20
   },
   subTitle: {
-    fontSize: 18,
+    fontSize: 14,
     fontWeight: '500',
-    textAlign: 'center',
+    textAlign: 'left',
   },
+  subTitleContainer: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
+    borderRadius: 5,
+  }
 });
 
 export default styles;
