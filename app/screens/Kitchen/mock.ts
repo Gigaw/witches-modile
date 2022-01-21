@@ -1,14 +1,17 @@
-import { IngredientsListType, RecipesListType } from "./types";
+import {IngredientsListType, RecipesListType} from './types';
 
 export const boilerMock: IngredientsListType = [
   {
     value: '',
+    cookingTime: 0,
   },
   {
     value: '',
+    cookingTime: 0,
   },
   {
     value: '',
+    cookingTime: 0,
   },
 ];
 
@@ -34,26 +37,26 @@ export const recipes: RecipesListType = [
 export const ingredients: IngredientsListType = [
   {
     value: 'a',
-	cookingTime: 3000
+    cookingTime: 3000,
   },
   {
     value: 'b',
-	cookingTime: 3000
+    cookingTime: 3000,
   },
   {
     value: 'c',
-	cookingTime: 1000
+    cookingTime: 1000,
   },
   {
     value: 'f',
-	cookingTime: 3000
+    cookingTime: 3000,
   },
   {
     value: 'g',
-	cookingTime: 2000
+    cookingTime: 2000,
   },
   {
     value: 'h',
-	cookingTime: 7000
+    cookingTime: 7000,
   },
 ];

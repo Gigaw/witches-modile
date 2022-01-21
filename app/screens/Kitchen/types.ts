@@ -1,6 +1,6 @@
 export type IngredientType = {
   value: string | null;
-  cookingTime?: number;
+  cookingTime: number;
 };
 
 export type IngredientPressType = (ingredient: IngredientType) => void;
