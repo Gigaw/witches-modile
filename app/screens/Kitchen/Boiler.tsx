@@ -1,11 +1,16 @@
 import React, {FC, Fragment, useEffect, useState} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {boilerMock, recipes} from './mock';
+import {Text, TouchableOpacity, View} from 'react-native';
+import {recipes} from './mock';
 import {IngredientsListType} from './types';
-import {getBoilerResult, getCookingTime, getIsBoilerField} from './utils';
-import kitchenStyles from './styles';
+import {
+  calculateProgress,
+  getBoilerResult,
+  getCookingTime,
+  getIsBoilerField,
+} from './utils';
 import * as Progress from 'react-native-progress';
 import AppButton from '../../components/AppButton';
+import styles from './Boiler.styles';
 
 interface PropTypes {
   boiler: IngredientsListType;
@@ -29,24 +34,20 @@ const Boiler: FC<PropTypes> = ({boiler, onItemPress}) => {
     };
   }, [boilingTime]);
 
-  const calculateProgress = (total: number, current: number) => {
-    return (total - current) / total;
-  };
-
   return (
     <View style={styles.container}>
       <View>
         <Text style={styles.headerText}>Котел</Text>
       </View>
       <View style={styles.list}>
-        {boiler.map((el, i) => (
+        {boiler.map((el, i, arr) => (
           <Fragment key={i}>
             <TouchableOpacity
               style={styles.item}
               onPress={() => onItemPress(i)}>
               <Text>{el.value}</Text>
             </TouchableOpacity>
-            <Text>{i + 1 === boilerMock.length ? '=' : '+'}</Text>
+            <Text>{i + 1 === arr.length ? '=' : '+'}</Text>
           </Fragment>
         ))}
         <View style={styles.item}>
@@ -76,7 +77,11 @@ const Boiler: FC<PropTypes> = ({boiler, onItemPress}) => {
               height={10}
               color="rgba(0, 0, 0, 1)"
             />
-            <AppButton text="стоп" onPress={() => setBoilingTime(0)} isActive={true} />
+            <AppButton
+              text="стоп"
+              onPress={() => setBoilingTime(0)}
+              isActive={true}
+            />
           </>
         )}
       </View>
@@ -84,38 +89,5 @@ const Boiler: FC<PropTypes> = ({boiler, onItemPress}) => {
   );
 };
 
-const styles = StyleSheet.create({
-  list: {
-    paddingVertical: 10,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-  },
-  item: {
-    width: 50,
-    height: 50,
-    borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
-  },
-  container: {
-    paddingHorizontal: 20,
-    marginBottom: 10,
-  },
-  headerText: kitchenStyles.subTitle,
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  time: {
-    // backgroundColor: 'red',
-    width: 40,
-  },
-  timeContainer: {
-    flexDirection: 'row',
-  },
-});
 
 export default Boiler;

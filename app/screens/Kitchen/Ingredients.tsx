@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, Text, TouchableOpacity, View} from 'react-native';
+import styles from './Ingredients.styles';
 import {ingredients} from './mock';
 import {IngredientPressType} from './types';
-import kitchenStyles from './styles';
 
 interface PropTypes {
   onItemPress: IngredientPressType;
@@ -32,34 +32,5 @@ const Ingredients: FC<PropTypes> = ({onItemPress}) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 20,
-    paddingVertical: 0,
-    flexGrow: 1,
-  },
-  listContainer: {
-    paddingVertical: 20,
-  },
-  header: {},
-  headerText: kitchenStyles.subTitle,
-  list: {
-    // backgroundColor: 'rgba(0, 0, 0, 0.1)',
-  },
-  item: {
-    width: 70,
-    height: 70,
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 15,
-    borderRadius: 5,
-  },
-  itemContainer: {
-    width: '25%',
-    justifyContent: 'center',
-  },
-});
 
 export default Ingredients;

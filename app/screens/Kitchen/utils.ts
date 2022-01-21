@@ -53,3 +53,7 @@ export const getCookingTime = (boiler: IngredientsListType): number => {
     boiler.map(el => el.cookingTime).reduce((prev, cur) => prev + cur) / 1000
   );
 };
+
+export const calculateProgress = (total: number, current: number) => {
+  return (total - current) / total;
+};
