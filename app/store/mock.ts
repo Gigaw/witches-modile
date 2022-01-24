@@ -20,6 +20,12 @@ export const stockMock: StockMockType = {
 		name: 'avocado',
 		img: '🥑',
 	  },
+	  {
+		id: 9,
+		count: 10,
+		name: 'tomato',
+		img: '🍅',
+	  },
 	],
 	poisons: [
 	  {
@@ -41,6 +47,12 @@ export const stockMock: StockMockType = {
 		count: 2,
 		name: 'hikaku',
 		img: '👘',
+	  },
+	  {
+		id: 23,
+		count: 1,
+		name: 'dress',
+		img: '👗',
 	  },
 	],
   
