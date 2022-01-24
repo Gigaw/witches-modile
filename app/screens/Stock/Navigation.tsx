@@ -1,58 +1,27 @@
 import React, {FC, useState} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {NavigationItemType, NavigationListType} from './types';
+import {Text, TouchableOpacity, View} from 'react-native';
+import {styles} from './Navigation.styles';
+import {NavigationListType} from './types';
 
 interface PropTypes {
   data: NavigationListType;
+  onItemPress: (number: number) => void;
+  activeItemIndex: number
 }
 
-interface ItemPropTypes {
-  data: NavigationItemType;
-  isActive: boolean;
-  onPress: () => void;
-}
-
-const Item: FC<ItemPropTypes> = ({data, isActive, onPress}) => {
-  return (
-    <TouchableOpacity
-      style={[styles.item, isActive && styles.itemActive]}
-      onPress={onPress}>
-      <Text style={styles.itemText}>{data.name}</Text>
-    </TouchableOpacity>
-  );
-};
-
-const Navigation: FC<PropTypes> = ({data}) => {
-  const [curItem, setCurItem] = useState(0);
+const Navigation: FC<PropTypes> = ({data, onItemPress, activeItemIndex}) => {
   return (
     <View style={styles.container}>
       {data.map((el, i) => (
-        <Item
-          key={i}
-          data={el}
-          isActive={curItem === i}
-          onPress={() => setCurItem(i)}
-        />
+        <TouchableOpacity
+          style={[styles.item, activeItemIndex === i && styles.itemActive]}
+          onPress={() => onItemPress(i)}
+          key={i}>
+          <Text style={styles.itemText}>{el.name}</Text>
+        </TouchableOpacity>
       ))}
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-  },
-  item: {
-    marginRight: 5,
-    marginBottom: 5,
-    paddingHorizontal: 5,
-    paddingVertical: 3,
-    borderRadius: 5,
-  },
-  itemActive: {
-    backgroundColor: 'rgba(255, 255, 255, 1)',
-    color: 'white',
-  },
-  itemText: {},
-});
 export default Navigation;

@@ -1,30 +1,27 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import Navigation from './Navigation';
-import {navMock} from './mock';
+import {navMock, stockMock} from './mock';
+import ThingsList from '../../components/ThingsList';
+import { styles } from './styles';
+import stock from '../../store/stock';
 
 const Stock: FC = () => {
+  const [curStock, setCurStock] = useState(0);
+  const handleNavPress = (number: number) => {
+    setCurStock(number);
+  };
+  
+  const filter = navMock[curStock]?.value;
+  const curStockData = stock.data[filter];
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        <Navigation data={navMock} />
+        <Navigation data={navMock} onItemPress={handleNavPress} activeItemIndex={curStock} />
+        <ThingsList data={curStockData} />
       </View>
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 10,
-    paddingHorizontal: 20,
-  },
-  navigation: {
-    flexDirection: 'row',
-  },
-  navigationItem: {
-    marginRight: 5,
-  },
-  navigationItemContaienr: {},
-});
 
 export default Stock;
