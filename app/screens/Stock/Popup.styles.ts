@@ -37,6 +37,9 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 5,
   },
+  saleControlDisable: {
+    backgroundColor: 'gray',
+  },
   saleControlText: {
     fontSize: 15,
     fontWeight: '800',

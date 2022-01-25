@@ -13,10 +13,11 @@ const Stock: FC = () => {
   const handleNavPress = (number: number) => {
     setCurStock(number);
   };
-  const [activeItem, setActiveItem] = useState<ThingType>();
+  const [activeItem, setActiveItem] = useState<ThingType| null>(null);
   const handleItemPress = (data: ThingType) => {
     setActiveItem(data);
   };
+  
 
   const filter = navMock[curStock]?.value;
   const curStockData = stock.data[filter];
@@ -29,14 +30,13 @@ const Stock: FC = () => {
             onItemPress={handleNavPress}
             activeItemIndex={curStock}
           />
-          {/* slice нужен чтобы убрать ворнинг mobx  */}
           <ThingsList
-            data={curStockData.slice()}
+            data={curStockData.slice()} // slice нужен чтобы убрать ворнинг mobx
             onItemPress={handleItemPress}
           />
         </View>
       </SafeAreaView>
-      {activeItem && <Popup data={activeItem} />}
+      {activeItem && <Popup data={activeItem} closePopup={() => setActiveItem(null)} />}
     </>
   );
 };
