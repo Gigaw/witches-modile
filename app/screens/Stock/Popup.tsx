@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import {ThingType} from '../../types';
 import {styles} from './Popup.styles';
+import stock from '../../store/stock';
 
 interface PropTypes {
   data: ThingType;
@@ -15,6 +16,9 @@ interface PropTypes {
 
 const Popup: FC<PropTypes> = ({data, closePopup}) => {
   const [count, setCount] = useState(1);
+  const handleSalePress = () => {
+    closePopup()
+  }
   return (
     <TouchableWithoutFeedback onPress={() => closePopup()}>
       <View style={styles.container}>
@@ -52,7 +56,7 @@ const Popup: FC<PropTypes> = ({data, closePopup}) => {
               <Text style={styles.saleSum}>{count * 1} $</Text>
               <TouchableOpacity
                 style={styles.saleBtn}
-                onPress={() => closePopup()}>
+                onPress={() => handleSalePress()}>
                 <Text style={styles.saleBtnText}>Продать</Text>
               </TouchableOpacity>
             </View>

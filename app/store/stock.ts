@@ -1,4 +1,5 @@
 import {makeAutoObservable} from 'mobx';
+import { ThingType } from '../types';
 import { stockMock } from './mock';
 
 class Stock {
@@ -6,6 +7,12 @@ class Stock {
 
   constructor() {
     makeAutoObservable(this);
+  }
+
+  saleThing(count: number, item: ThingType) {
+    // for (let key:  in this.data) {
+    //   this.data[key]
+    // }
   }
 }
 
