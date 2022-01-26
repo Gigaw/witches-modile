@@ -54,7 +54,7 @@ const Popup: FC<PropTypes> = ({data, closePopup}) => {
                   <Text style={styles.saleControlText}>+</Text>
                 </TouchableOpacity>
               </View>
-              <Text style={styles.saleSum}>{count * 1} $</Text>
+              <Text style={styles.saleSum}>{count * data.price} $</Text>
               <TouchableOpacity
                 style={styles.saleBtn}
                 onPress={() => handleSalePress()}>

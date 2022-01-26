@@ -3,6 +3,7 @@ export type ThingType = {
 	count: number;
 	img: string;
 	id: number;
+	price: number;
 };
 
 export type ThingListType = Array<ThingType>;
