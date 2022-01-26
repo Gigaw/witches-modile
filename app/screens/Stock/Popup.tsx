@@ -17,8 +17,9 @@ interface PropTypes {
 const Popup: FC<PropTypes> = ({data, closePopup}) => {
   const [count, setCount] = useState(1);
   const handleSalePress = () => {
-    closePopup()
-  }
+    stock.saleThing(count, data);
+    closePopup();
+  };
   return (
     <TouchableWithoutFeedback onPress={() => closePopup()}>
       <View style={styles.container}>

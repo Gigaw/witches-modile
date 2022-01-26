@@ -3,15 +3,18 @@ export type ThingType = {
 	count: number;
 	img: string;
 	id: number;
-  };
-  
-  export type ThingListType = Array<ThingType>;
-  
-  export type ThingsMockType<T> = {
+};
+
+export type ThingListType = Array<ThingType>;
+
+export type ThingsMockType<T> = {
 	ingredients: T;
 	poisons: T;
 	clothes: T;
 	other: T;
-  };
-  
-  export type StockMockType = ThingsMockType<ThingListType>
+};
+
+
+export type StockMockType = ThingsMockType<ThingListType>
+export type ThingsMockKeysType = keyof StockMockType;
+export const getKeys = Object.keys as <T extends object>(obj: T) => Array<keyof T>
