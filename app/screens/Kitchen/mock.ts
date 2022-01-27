@@ -1,62 +1,47 @@
-import {IngredientsListType, RecipesListType} from './types';
+import { IngredientsListType } from '../../types';
+import {RecipesListType} from './types';
 
 export const boilerMock: IngredientsListType = [
   {
-    value: '',
+    id: 0, 
     cookingTime: 0,
+    img: '',
+    name: '',
+    count: 0, 
+    price: 0
   },
   {
-    value: '',
+    id: 0, 
     cookingTime: 0,
+    img: '',
+    name: '',
+    count: 0, 
+    price: 0
   },
   {
-    value: '',
+    id: 0, 
     cookingTime: 0,
+    img: '',
+    name: '',
+    count: 0, 
+    price: 0
   },
 ];
 
 export const recipes: RecipesListType = [
   {
-    name: '⭐️',
-    ingredients: ['a', 'b'],
+    name: 'Яичница ',
+    img:  '🍳',
+    ingredients: [51, 14, 89],
   },
   {
-    name: '☠️',
-    ingredients: ['c', 'b'],
+    name: 'Сок яблочный',
+    img: '🧃',
+    ingredients: [14, 14],
   },
   {
-    name: '👽',
-    ingredients: ['c', 'b', 'a'],
-  },
-  {
-    name: '🔱',
-    ingredients: ['c', 'b', 'f'],
-  },
-];
-
-export const ingredients: IngredientsListType = [
-  {
-    value: 'a',
-    cookingTime: 3000,
-  },
-  {
-    value: 'b',
-    cookingTime: 3000,
-  },
-  {
-    value: 'c',
-    cookingTime: 1000,
-  },
-  {
-    value: 'f',
-    cookingTime: 3000,
-  },
-  {
-    value: 'g',
-    cookingTime: 2000,
-  },
-  {
-    value: 'h',
-    cookingTime: 7000,
+    name: 'Томатный сок',
+    img: '🥫',
+    ingredients: [55, 55, 55],
   },
 ];

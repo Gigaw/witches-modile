@@ -1,4 +1,5 @@
-import {IngredientsListType, IngredientType, RecipesListType} from './types';
+import {IngredientsListType, IngredientType} from '../../types';
+import {RecipesListType} from './types';
 
 export function isEqual<T>(arrA: T[], arrB: T[]): boolean {
   const a1 = arrA.sort();
@@ -8,7 +9,7 @@ export function isEqual<T>(arrA: T[], arrB: T[]): boolean {
 
 export const getIsBoilerField = (boiler: IngredientsListType): boolean => {
   let sum = 0;
-  boiler.every(el => (sum += +!!el.value));
+  boiler.every(el => (sum += +!!el.id));
   return sum > 1;
 };
 
@@ -18,7 +19,7 @@ export const getBoilerWithNewIngredient = (
 ): IngredientsListType => {
   const newBoiler = [...boiler];
   newBoiler.every((el, i, arr) => {
-    if (!el.value) {
+    if (!el.id) {
       arr[i] = ingredient;
       return false;
     }
@@ -33,8 +34,12 @@ export const getBoilerWithoutIngredient = (
 ): IngredientsListType => {
   const newBoiler = boiler.filter((el, i) => index !== i);
   newBoiler.push({
-    value: null,
+    id: 0,
     cookingTime: 0,
+    name: '',
+    count: 0,
+    img: '',
+    price: 0,
   });
   return newBoiler;
 };
@@ -43,9 +48,9 @@ export const getBoilerResult = (
   boiler: IngredientsListType,
   recipes: RecipesListType,
 ): string => {
-  const values = boiler.filter(el => el.value).map(el => el.value);
+  const values = boiler.filter(el => el.id).map(el => el.id);
   const result = recipes.find(el => isEqual(el.ingredients, values));
-  return result?.name || '?';
+  return result?.img || '?';
 };
 
 export const getCookingTime = (boiler: IngredientsListType): number => {

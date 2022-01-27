@@ -3,25 +3,44 @@ import { StockMockType } from "../types";
 export const stockMock: StockMockType = {
 	ingredients: [
 	  {
-		id: 1,
+		id: 51,
 		count: 2,
 		name: 'carrot',
-		img: '🥕',
-		price: 1
+		img: '🥚',
+		price: 4,
+		cookingTime: 1000, 
 	  },
 	  {
-		id: 7,
+		id: 14,
 		count: 1,
 		name: 'salt',
 		img: '🧂',
-		price: 2
+		price: 3,
+		cookingTime: 5000, 
 	  },
 	  {
-		id: 8,
-		count: 2,
-		name: 'avocado',
-		img: '🥑',
-		price: 2
+		id: 89,
+		count: 7,
+		name: 'butter',
+		img: '🧈',
+		price: 11,
+		cookingTime: 3000, 
+	  },
+	  {
+		id: 14,
+		count: 10,
+		name: 'apple',
+		img: '🍏',
+		price: 1,
+		cookingTime: 4000, 
+	  },
+	  {
+		id: 14,
+		count: 10,
+		name: 'apple',
+		img: '🍅',
+		price: 15,
+		cookingTime: 9000, 
 	  },
 	],
 	poisons: [
@@ -30,7 +49,7 @@ export const stockMock: StockMockType = {
 		count: 2,
 		name: 'green poison',
 		img: '🍵',
-		price: 5
+		price: 5,
 	  },
 	  {
 		id: 5,

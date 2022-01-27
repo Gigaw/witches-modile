@@ -1,11 +1,12 @@
-import React, {FC, Fragment, useState} from 'react';
+import React, {FC, useState} from 'react';
 import {SafeAreaView, View} from 'react-native';
-import Header from '../../components/Header';
+// import Header from '../../components/Header';
 import Boiler from './Boiler';
 import Ingredients from './Ingredients';
 import {boilerMock} from './mock';
 import styles from './styles';
-import {IngredientPressType} from './types';
+import {IngredientPressType} from '../../types';
+
 import {getBoilerWithNewIngredient, getBoilerWithoutIngredient} from './utils';
 
 const Kitchen: FC = () => {

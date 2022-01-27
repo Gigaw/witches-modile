@@ -15,11 +15,9 @@ const ThingsList: FC<PropTypes> = ({data, onItemPress}) => {
       data={data}
       style={styles.block}
       contentContainerStyle={styles.container}
-      renderItem={({item}) => {
-        return item.count > 0 ? (
-          <Item data={item} onPress={() => onItemPress(item)} />
-        ) : null;
-      }}
+      renderItem={({item}) => (
+        <Item data={item} onPress={() => onItemPress(item)} />
+      )}
       numColumns={4}
     />
   );

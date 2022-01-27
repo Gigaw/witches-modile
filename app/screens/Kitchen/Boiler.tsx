@@ -1,7 +1,7 @@
 import React, {FC, Fragment, useEffect, useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {recipes} from './mock';
-import {IngredientsListType} from './types';
+// import {IngredientsListType} from './types';
 import {
   calculateProgress,
   getBoilerResult,
@@ -11,6 +11,7 @@ import {
 import * as Progress from 'react-native-progress';
 import AppButton from '../../components/AppButton';
 import styles from './Boiler.styles';
+import { IngredientsListType } from '../../types';
 
 interface PropTypes {
   boiler: IngredientsListType;
@@ -45,7 +46,7 @@ const Boiler: FC<PropTypes> = ({boiler, onItemPress}) => {
             <TouchableOpacity
               style={styles.item}
               onPress={() => onItemPress(i)}>
-              <Text>{el.value}</Text>
+              <Text>{el.img}</Text>
             </TouchableOpacity>
             <Text>{i + 1 === arr.length ? '=' : '+'}</Text>
           </Fragment>

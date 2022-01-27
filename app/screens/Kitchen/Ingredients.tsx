@@ -1,21 +1,22 @@
 import React, {FC} from 'react';
 import {FlatList, Text, TouchableOpacity, View} from 'react-native';
+import stock from '../../store/stock';
 import styles from './Ingredients.styles';
-import {ingredients} from './mock';
-import {IngredientPressType} from './types';
-
+import { IngredientPressType } from "../../types";
 interface PropTypes {
   onItemPress: IngredientPressType;
 }
 
 const Ingredients: FC<PropTypes> = ({onItemPress}) => {
+  const ingredients = stock.data['ingredients'];
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerText}>Ингредиенты</Text>
       </View>
       <FlatList
-        data={ingredients}
+        data={ingredients.slice()}
         style={styles.list}
         contentContainerStyle={styles.listContainer}
         renderItem={({item}) => (
@@ -23,7 +24,7 @@ const Ingredients: FC<PropTypes> = ({onItemPress}) => {
             <TouchableOpacity
               style={styles.item}
               onPress={() => onItemPress(item)}>
-              <Text>{item.value}</Text>
+              <Text>{item.img}</Text>
             </TouchableOpacity>
           </View>
         )}

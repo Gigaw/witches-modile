@@ -12,13 +12,16 @@ class Stock {
 
   saleThing(count: number, item: ThingType) {
     getKeys(this.data).every(key => {
-      const curItem = this.data[key].find(el => el === item);
+      const currArr = this.data[key]
+      const curItemIndex = currArr.findIndex(el => el === item);
+      const curItem = currArr[curItemIndex];
+
       if (curItem) {
         const a = curItem.count -= count;
-        console.log(a);
-        if (a)
+        if (a === 0) {
+          currArr.splice(curItemIndex, 1)
+        }
         this.cash += item.price * count;
-
         return false;
       }
       return true;
