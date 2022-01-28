@@ -27,6 +27,10 @@ class Stock {
       return true;
     });
   }
+
+  // cookRecipe(boiler, recipe) {
+
+  // }
 }
 
 export default new Stock();

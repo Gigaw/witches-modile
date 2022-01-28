@@ -27,3 +27,11 @@ export type ThingsMockKeysType = keyof StockMockType;
 export const getKeys = Object.keys as <T extends object>(
   obj: T,
 ) => Array<keyof T>;
+
+export type RecipeType = {
+  name: string;
+  img: string;
+  ingredients: number[];
+};
+
+export type RecipesListType = Array<RecipeType>;

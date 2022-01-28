@@ -35,7 +35,7 @@ export const stockMock: StockMockType = {
 		cookingTime: 4000, 
 	  },
 	  {
-		id: 14,
+		id: 55,
 		count: 10,
 		name: 'apple',
 		img: '🍅',
