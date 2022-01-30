@@ -10,7 +10,7 @@ import {
 import * as Progress from 'react-native-progress';
 import AppButton from '../../components/AppButton';
 import styles from './Boiler.styles';
-import { IngredientsListType } from '../../types';
+import {IngredientsListType} from '../../types';
 
 interface PropTypes {
   boiler: IngredientsListType;
@@ -36,23 +36,24 @@ const Boiler: FC<PropTypes> = ({boiler, onItemPress}) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Котел</Text>
+      <View style={styles.resultContainer}>
+        <View style={styles.result}>
+          <Text style={styles.resultImg}>{isBoilerField ? getBoilerResult(boiler, recipes) : null}</Text>
+          {/* <Text style={styles.resultImg}>🧛🏻</Text> */}
+        </View>
       </View>
+
       <View style={styles.list}>
         {boiler.map((el, i, arr) => (
           <Fragment key={i}>
             <TouchableOpacity
               style={styles.item}
               onPress={() => onItemPress(i)}>
-              <Text>{el.img}</Text>
+              <Text style={styles.itemImg}>{el.img}</Text>
             </TouchableOpacity>
-            <Text>{i + 1 === arr.length ? '=' : '+'}</Text>
+            {i + 1 === arr.length ? null : <Text>+</Text>}
           </Fragment>
         ))}
-        <View style={styles.item}>
-          <Text>{isBoilerField ? getBoilerResult(boiler, recipes) : null}</Text>
-        </View>
       </View>
       <View style={styles.footer}>
         {!(boilingTime > 0) ? (
@@ -88,6 +89,5 @@ const Boiler: FC<PropTypes> = ({boiler, onItemPress}) => {
     </View>
   );
 };
-
 
 export default Boiler;

@@ -12,7 +12,7 @@ export type ThingListType = Array<ThingType>;
 
 //Ingredient
 export interface IngredientType extends ThingType {
-  cookingTime: number;
+  category: 'ingredients'
 }
 
 export type IngredientPressType = (ingredient: IngredientType) => void;
@@ -26,12 +26,24 @@ export const getKeys = Object.keys as <T extends object>(
   obj: T,
 ) => Array<keyof T>;
 
+//Dish
+export interface Dish extends ThingType {
+  category: 'dishes',
+  cookingTime: number;
+}
+
 //Recipe
-export type RecipeType = {
+export interface RecipeType {
   name: string;
   img: string;
   ingredients: number[];
 };
+
+export interface Recipe {
+  id: number,
+  ingredients: IngredientsListType,
+  result: Dish,
+}
 
 export type RecipesListType = Array<RecipeType>;
 

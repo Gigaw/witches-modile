@@ -1,10 +1,11 @@
 import { makeAutoObservable } from 'mobx';
-import { ThingType, StockMockType } from '../types';
-import { stockMock } from './mock';
+import { ThingType } from '../types';
+import { recipesMock, stockMock } from './mock';
 
 class Stock {
-  data: StockMockType = stockMock;
+  data = stockMock;
   cash = 0;
+  recipes = recipesMock;
 
   constructor() {
     makeAutoObservable(this);

@@ -8,25 +8,28 @@ interface PropTypes {
 }
 
 const Ingredients: FC<PropTypes> = ({onItemPress}) => {
-  const ingredients = stock.data['ingredients'];
+  const ingredients = stock.data;
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.headerText}>Ингредиенты</Text>
+        <Text style={styles.headerText}>Рецепты</Text>
       </View>
       <FlatList
         data={ingredients.slice()}
         style={styles.list}
         contentContainerStyle={styles.listContainer}
         renderItem={({item}) => (
-          <View style={styles.itemContainer}>
-            <TouchableOpacity
-              style={styles.item}
-              onPress={() => onItemPress(item)}>
-              <Text>{item.img}</Text>
-            </TouchableOpacity>
-          </View>
+          <View>
+            
+            </View>
+          // <View style={styles.itemContainer}>
+          //   <TouchableOpacity
+          //     style={styles.item}
+          //     onPress={() => onItemPress(item)}>
+          //     <Text>{item.img}</Text>
+          //   </TouchableOpacity>
+          // </View>
         )}
         numColumns={4}
       />
