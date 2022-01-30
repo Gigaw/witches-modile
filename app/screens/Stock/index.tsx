@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, Text, View} from 'react-native';
 import Navigation from './Navigation';
 import {navMock} from './mock';
 import ThingsList from '../../components/ThingsList';
@@ -19,8 +19,8 @@ const Stock: FC = observer(() => {
     setActiveItem(data);
   };
 
-  const filter = navMock[curStock]?.value;
-  const curStockData = stock.data[filter];
+  const filter = navMock[curStock]?.filterName;
+  const curStockData = stock.data.filter(el => el.category === filter);
   return (
     <>
       <SafeAreaView style={{flexGrow: 1}}>

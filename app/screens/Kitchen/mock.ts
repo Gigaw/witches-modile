@@ -1,5 +1,4 @@
-import { IngredientsListType } from '../../types';
-import {RecipesListType} from './types';
+import { IngredientsListType, RecipesListType } from '../../types';
 
 export const boilerMock: IngredientsListType = [
   {

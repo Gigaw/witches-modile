@@ -1,7 +1,7 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
+import { NavigationListType } from '../../types';
 import {styles} from './Navigation.styles';
-import {NavigationListType} from './types';
 
 interface PropTypes {
   data: NavigationListType;

@@ -1,7 +1,6 @@
 import React, {FC, Fragment, useEffect, useState} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {recipes} from './mock';
-// import {IngredientsListType} from './types';
 import {
   calculateProgress,
   getBoilerResult,

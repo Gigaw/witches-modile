@@ -1,13 +1,16 @@
+//Thing
 export interface ThingType {
   name: string;
   count: number;
   img: string;
   id: number;
   price: number;
+  category: ThingsCategories;
 }
 
 export type ThingListType = Array<ThingType>;
 
+//Ingredient
 export interface IngredientType extends ThingType {
   cookingTime: number;
 }
@@ -15,19 +18,15 @@ export interface IngredientType extends ThingType {
 export type IngredientPressType = (ingredient: IngredientType) => void;
 export type IngredientsListType = Array<IngredientType>;
 
-export interface StockMockType {
-  ingredients: IngredientsListType;
-  poisons: ThingListType;
-  clothes: ThingListType;
-  other: ThingListType;
-}
+//Stock
+export type StockMockType = Array<ThingType | IngredientType>
 
-// export type StockMockType = ThingsMockType<ThingListType>;
 export type ThingsMockKeysType = keyof StockMockType;
 export const getKeys = Object.keys as <T extends object>(
   obj: T,
 ) => Array<keyof T>;
 
+//Recipe
 export type RecipeType = {
   name: string;
   img: string;
@@ -35,3 +34,14 @@ export type RecipeType = {
 };
 
 export type RecipesListType = Array<RecipeType>;
+
+//Navigation
+export type NavigationItemType = {
+  name: string;
+  filterName: ThingsCategories;
+};
+
+export type NavigationListType = Array<NavigationItemType>;
+
+export type ThingsCategories = 'dishes' | 'ingredients';
+
