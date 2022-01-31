@@ -57,3 +57,5 @@ export type NavigationListType = Array<NavigationItemType>;
 
 export type ThingsCategories = 'dishes' | 'ingredients';
 
+//Boiler
+export type BoilerStatus = 'cooking' | 'empty' | 'complete'

@@ -1,4 +1,4 @@
-import {IngredientsListType, IngredientType, RecipesListType} from '../../types';
+import { IngredientsListType, IngredientType } from "./types";
 
 export function isEqual<T>(arrA: T[], arrB: T[]): boolean {
   const a1 = arrA.sort();

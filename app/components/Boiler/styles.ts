@@ -1,7 +1,6 @@
 import {StyleSheet} from 'react-native';
-import kitchenStyles from './styles';
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   list: {
     paddingVertical: 10,
     alignItems: 'center',
@@ -38,8 +37,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginBottom: 10,
   },
-  header: kitchenStyles.subTitleContainer,
-  headerText: kitchenStyles.subTitle,
+  // header: kitchenStyles.subTitleContainer,
+  // headerText: kitchenStyles.subTitle,
   footer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -52,5 +51,3 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
 });
-
-export default styles;

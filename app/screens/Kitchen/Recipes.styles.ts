@@ -1,5 +1,5 @@
 import kitchenStyles from './styles';
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,19 +14,6 @@ const styles = StyleSheet.create({
   headerText: kitchenStyles.subTitle,
   list: {
     // backgroundColor: 'rgba(0, 0, 0, 0.1)',
-  },
-  item: {
-    width: 70,
-    height: 70,
-    backgroundColor: 'rgba(0, 0, 0, 0.1)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 15,
-    borderRadius: 5,
-  },
-  itemContainer: {
-    width: '25%',
-    justifyContent: 'center',
   },
 });
 

@@ -76,7 +76,7 @@ export const recipesMock: Array<Recipe> = [
 			id: 20,
 			name: 'Томатный сок',
 			img: '🥫',
-			cookingTime: 10000,
+			cookingTime: 24,
 			count: 1,
 			category: 'dishes',
 			price: 16,
@@ -114,7 +114,7 @@ export const recipesMock: Array<Recipe> = [
 			id: 40,
 			name: 'Яичница ',
 			img: '🍳',
-			cookingTime: 14000,
+			cookingTime: 87,
 			count: 1,
 			category: 'dishes',
 			price: 26,
@@ -142,7 +142,7 @@ export const recipesMock: Array<Recipe> = [
 		],
 		result: {
 			id: 30,
-			cookingTime: 9000,
+			cookingTime: 7,
 			count: 1,
 			category: 'dishes',
 			price: 14,
@@ -151,3 +151,43 @@ export const recipesMock: Array<Recipe> = [
 		}
 	}
 ];
+
+export const boilerMock: Recipe =
+{
+  id: 0,
+  ingredients: [
+    {
+      id: 0,
+      img: '',
+      name: '',
+      count: 0,
+      price: 0,
+      category: 'ingredients',
+    },
+    {
+      id: 0,
+      category: 'ingredients',
+      img: '',
+      name: '',
+      count: 0,
+      price: 0
+    },
+    {
+      id: 0,
+      category: 'ingredients',
+      img: '',
+      name: '',
+      count: 0,
+      price: 0
+    },
+  ],
+  result: {
+    id: 0,
+    category: 'dishes',
+    img: '',
+    name: '',
+    count: 0,
+    price: 0,
+    cookingTime: 0
+  }
+}

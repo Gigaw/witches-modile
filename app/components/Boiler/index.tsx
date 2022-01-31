@@ -1,23 +1,17 @@
-import React, {FC, Fragment, useEffect, useState} from 'react';
+import React, {FC, Fragment, useEffect} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
-import {calculateProgress} from './utils';
 import * as Progress from 'react-native-progress';
 import AppButton from '../../components/AppButton';
-import styles from './Boiler.styles';
-import {Recipe} from '../../types';
+import {styles} from './styles';
 import kitchen from '../../store/kitchen';
 import {observer} from 'mobx-react-lite';
+import {calculateProgress} from '../../utils';
 
-interface PropTypes {
-  // boiler: Recipe;
-  // onItemPress: (index: number) => void;
-}
+interface PropTypes {}
 
 const Boiler: FC<PropTypes> = observer(() => {
   const boilingTime = kitchen.boilingTime;
   const cookingTime = kitchen.boiler.result.cookingTime; //поменять название
-
-  console.log(boilingTime);
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
@@ -31,17 +25,11 @@ const Boiler: FC<PropTypes> = observer(() => {
     };
   }, [boilingTime]);
 
-  // const Footer = 
-
   return (
     <View style={styles.container}>
       <View style={styles.resultContainer}>
         <View style={styles.result}>
-          <Text style={styles.resultImg}>
-            {kitchen.boiler.result.img}
-            {/* {isBoilerField ? getBoilerResult(boiler, recipes) : null} */}
-          </Text>
-          {/* <Text style={styles.resultImg}>🧛🏻</Text> */}
+          <Text style={styles.resultImg}>{kitchen.boiler.result.img}</Text>
         </View>
       </View>
 
